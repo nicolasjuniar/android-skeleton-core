@@ -1,0 +1,3 @@
+package juniar.nicolas.androidskeletoncore.data
+
+interface BaseApiService
