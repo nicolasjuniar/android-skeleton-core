@@ -21,5 +21,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Android Skeleton Core"
-include(":app")
-include(":library")
+include(":app", ":library")
