@@ -17,15 +17,15 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object DataStoreModule {
 
-    @Provides
-    @Singleton
-    fun provideDataStore(@ApplicationContext context: Context): DataStore<Preferences> =
-        PreferenceDataStoreFactory.create {
-            context.dataStoreFile("skeleton_preferences_prefs")
-        }
-
-    @Provides
-    @Singleton
-    fun provideGenericDataStoreHelper(dataStore: DataStore<Preferences>):GenericDataStoreHelper =
-        GenericDataStoreHelper(dataStore)
+//    @Provides
+//    @Singleton
+//    fun provideDataStore(@ApplicationContext context: Context): DataStore<Preferences> =
+//        PreferenceDataStoreFactory.create {
+//            context.dataStoreFile("skeleton_preferences_prefs")
+//        }
+//
+//    @Provides
+//    @Singleton
+//    fun provideGenericDataStoreHelper(dataStore: DataStore<Preferences>):GenericDataStoreHelper =
+//        GenericDataStoreHelper(dataStore)
 }
