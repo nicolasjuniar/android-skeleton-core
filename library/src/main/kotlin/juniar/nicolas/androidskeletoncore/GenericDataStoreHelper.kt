@@ -10,8 +10,11 @@ import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class GenericDataStoreHelper(private val dataStore: DataStore<Preferences>) {
+class GenericDataStoreHelper @Inject constructor(
+    private val dataStore: DataStore<Preferences>
+) {
 
     suspend fun <T> save(key: Preferences.Key<T>, value: T) {
         dataStore.edit { prefs ->

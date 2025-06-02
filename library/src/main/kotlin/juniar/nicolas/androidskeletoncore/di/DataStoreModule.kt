@@ -23,9 +23,4 @@ object DataStoreModule {
         PreferenceDataStoreFactory.create {
             context.dataStoreFile("skeleton_preferences")
         }
-
-    @Provides
-    @Singleton
-    fun provideGenericDataStoreHelper(dataStore: DataStore<Preferences>):GenericDataStoreHelper =
-        GenericDataStoreHelper(dataStore)
 }
