@@ -1,5 +1,6 @@
 package juniar.nicolas.androidskeletoncore
 
+import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
@@ -8,22 +9,26 @@ import androidx.datastore.preferences.core.floatPreferencesKey
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
+import androidx.datastore.preferences.preferencesDataStore
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
+private val Context.dataStore by preferencesDataStore("user_prefs")
+
 class GenericDataStoreHelper @Inject constructor(
-    private val dataStore: DataStore<Preferences>
+    @ApplicationContext private val context: Context
 ) {
 
     suspend fun <T> save(key: Preferences.Key<T>, value: T) {
-        dataStore.edit { prefs ->
+        context.dataStore.edit { prefs ->
             prefs[key] = value
         }
     }
 
     fun <T> load(key: Preferences.Key<T>): Flow<T?> {
-        return dataStore.data.map { prefs ->
+        return context.dataStore.data.map { prefs ->
             prefs[key]
         }
     }
