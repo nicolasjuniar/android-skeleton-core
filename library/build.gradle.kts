@@ -52,6 +52,7 @@ dependencies {
     implementation(libs.okhttp.urlconnection)
     implementation(libs.okhttp.logging.interceptor)
     implementation(libs.chucker)
+    implementation(libs.datastore)
     ksp(libs.hilt.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
