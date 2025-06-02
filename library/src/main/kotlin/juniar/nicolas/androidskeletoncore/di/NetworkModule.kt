@@ -7,12 +7,12 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import juniar.nicolas.androidskeletoncore.SkeletonCore
 import juniar.nicolas.androidskeletoncore.data.BaseApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @Module
@@ -31,9 +31,9 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit =
+    fun provideRetrofit(okHttpClient: OkHttpClient, @BaseUrl baseUrl: String): Retrofit =
         Retrofit.Builder()
-            .baseUrl(SkeletonCore.appConfig.baseUrl)
+            .baseUrl(baseUrl)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -43,3 +43,7 @@ object NetworkModule {
     fun provideApiService(retrofit: Retrofit): BaseApiService =
         retrofit.create(BaseApiService::class.java)
 }
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class BaseUrl
