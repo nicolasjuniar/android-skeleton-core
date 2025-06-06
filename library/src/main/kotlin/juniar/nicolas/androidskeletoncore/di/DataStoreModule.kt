@@ -2,7 +2,7 @@ package juniar.nicolas.androidskeletoncore.di
 
 import android.content.Context
 import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.Preferencesø
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
