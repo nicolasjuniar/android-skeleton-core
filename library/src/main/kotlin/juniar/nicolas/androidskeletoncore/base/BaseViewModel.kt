@@ -1,4 +1,4 @@
-package juniar.nicolas.androidskeletoncore
+package juniar.nicolas.androidskeletoncore.base
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

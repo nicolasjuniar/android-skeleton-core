@@ -1,4 +1,4 @@
-package juniar.nicolas.androidskeletoncore
+package juniar.nicolas.androidskeletoncore.util
 
 import android.view.View
 
